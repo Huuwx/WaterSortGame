@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2038410753
+    locked: 0
+  - name: BottleMask
+    uniqueID: 2072646577
+    locked: 0
+  - name: Bottle
+    uniqueID: 2162861653
+    locked: 0

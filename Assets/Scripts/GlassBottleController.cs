@@ -8,6 +8,8 @@ public class GlassBottleController : MonoBehaviour
     private Animator animator;
     bool picked = false;
 
+    //moi lan cong or tru 0.4
+
     public Button myButton;
 
     void Awake()
