@@ -5,52 +5,84 @@ using UnityEngine.UI;
 
 public class GlassBottleController : MonoBehaviour
 {
-    private Animator animator;
-    bool picked = false;
+    public Color[] bottleColors;
+    public SpriteRenderer bottleMaskSR;
+
+    public AnimationCurve ScaleAndRotationMultiplierCurve;
+    public AnimationCurve FillAmountCurve;
+
+    public AnimationCurve RotationSpeedMultiplier;
 
     //moi lan cong or tru 0.4
 
-    public Button myButton;
-
-    void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
-
-
     void Start()
     {
-        if (myButton != null)
+        UpdateColorFromShader();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.P))
         {
-            myButton.onClick.AddListener(OnButtonClicked);
+            StartCoroutine(RotateBottle());
         }
     }
 
-    void OnButtonClicked()
+    void UpdateColorFromShader()
     {
-        if (!picked)
-        {
-            Picked();
-            picked = true;
-        }
-        else
-        {
-            UnPick();
-            picked = false;
-        }
+        bottleMaskSR.material.SetColor("_C1", bottleColors[0]);
+        bottleMaskSR.material.SetColor("_C2", bottleColors[1]);
+        bottleMaskSR.material.SetColor("_C3", bottleColors[2]);
     }
 
-    public void Picked()
+    public float TimeToRotate = 1.0f;
+    IEnumerator RotateBottle()
     {
+        float t = 0;
+        float lerpValue;
+        float angleValue;
 
-        animator.SetTrigger("Picked");
+        while (t < TimeToRotate)
+        {
+            lerpValue = t / TimeToRotate;
+            angleValue = Mathf.Lerp(0.0f, 90.0f, lerpValue);
 
+            transform.eulerAngles = new Vector3(0, 0, angleValue);
+            bottleMaskSR.material.SetFloat("_SARM", ScaleAndRotationMultiplierCurve.Evaluate(angleValue));
+            bottleMaskSR.material.SetFloat("_FillAmount", FillAmountCurve.Evaluate(angleValue));
+            t += Time.deltaTime * RotationSpeedMultiplier.Evaluate(angleValue);
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        angleValue = 90.0f;
+        transform.eulerAngles = new Vector3(0, 0, angleValue);
+        bottleMaskSR.material.SetFloat("_SARM", ScaleAndRotationMultiplierCurve.Evaluate(angleValue));
+        bottleMaskSR.material.SetFloat("_FillAmount", FillAmountCurve.Evaluate(angleValue));
+
+        StartCoroutine(RotateBottleBack());
     }
 
-    public void UnPick()
+    IEnumerator RotateBottleBack()
     {
+        float t = 0;
+        float lerpValue;
+        float angleValue;
 
-        animator.SetTrigger("UnPick");
+        while (t < TimeToRotate)
+        {
+            lerpValue = t / TimeToRotate;
+            angleValue = Mathf.Lerp(90.0f, 0.0f, lerpValue);
 
+            transform.eulerAngles = new Vector3(0, 0, angleValue);
+            bottleMaskSR.material.SetFloat("_SARM", ScaleAndRotationMultiplierCurve.Evaluate(angleValue));
+            t += Time.deltaTime;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        angleValue = 0.0f;
+        transform.eulerAngles = new Vector3(0, 0, angleValue);
+        bottleMaskSR.material.SetFloat("_SARM", ScaleAndRotationMultiplierCurve.Evaluate(angleValue));
     }
 }
