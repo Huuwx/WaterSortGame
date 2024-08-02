@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class GlassBottleController : MonoBehaviour
 {
+    public GameController gameController;
     public GlassBottleController bottleControllerRef;
-    public bool justThisBottle = false;
     private int numberOfColorsToTransfer = 0;
 
     public Color[] bottleColors;
@@ -40,7 +40,9 @@ public class GlassBottleController : MonoBehaviour
 
     public LineRenderer lineRenderer;
 
-    //moi lan cong or tru 0.4
+    public bool canPick;
+
+    //moi lan cong or tru 0.65
 
     void Start()
     {
@@ -51,6 +53,8 @@ public class GlassBottleController : MonoBehaviour
         UpdateColorFromShader();
 
         UpdateTopColorValues();
+
+        canPick = true;
     }
 
     private void Update()
@@ -121,6 +125,7 @@ public class GlassBottleController : MonoBehaviour
 
     public void StartColorTransfer()
     {
+
         ChoseRotationPointAndDirection();
 
         numberOfColorsToTransfer = Mathf.Min(numberOfTopColorLayers, 3 - bottleControllerRef.numberOfColorsInBottle);
@@ -143,7 +148,7 @@ public class GlassBottleController : MonoBehaviour
     IEnumerator MoveBottle()
     {
         startPos = transform.position;
-        if(chosenRotationPoint == leftRotationPoint)
+        if (chosenRotationPoint == leftRotationPoint)
         {
             endPos = bottleControllerRef.rightRotationPoint.position;
         }
@@ -154,7 +159,7 @@ public class GlassBottleController : MonoBehaviour
 
         float t = 0;
 
-        while(t <= 1)
+        while (t <= 1)
         {
             transform.position = Vector3.Lerp(startPos, endPos, t);
 
@@ -188,6 +193,8 @@ public class GlassBottleController : MonoBehaviour
 
         transform.GetComponent<SpriteRenderer>().sortingLayerName = "Bottle";
         bottleMaskSR.sortingLayerName = "Bottle";
+
+        gameController.SetTrueCanPick();
     }
 
     void UpdateColorFromShader()
@@ -216,13 +223,13 @@ public class GlassBottleController : MonoBehaviour
 
             //transform.eulerAngles = new Vector3(0, 0, angleValue);
 
-            transform.RotateAround(chosenRotationPoint.position, Vector3.forward, lastAngleValue -  angleValue);
+            transform.RotateAround(chosenRotationPoint.position, Vector3.forward, lastAngleValue - angleValue);
 
             bottleMaskSR.material.SetFloat("_SARM", ScaleAndRotationMultiplierCurve.Evaluate(angleValue));
 
             if (fillAmounts[numberOfColorsInBottle] > FillAmountCurve.Evaluate(angleValue) + 0.005f)
             {
-                if(lineRenderer.enabled == false)
+                if (lineRenderer.enabled == false)
                 {
                     lineRenderer.startColor = topColor;
                     lineRenderer.endColor = topColor;
@@ -292,13 +299,13 @@ public class GlassBottleController : MonoBehaviour
 
     public void UpdateTopColorValues()
     {
-        if(numberOfColorsInBottle != 0)
+        if (numberOfColorsInBottle != 0)
         {
             numberOfTopColorLayers = 1;
 
             topColor = bottleColors[numberOfColorsInBottle - 1];
 
-            if(numberOfColorsInBottle == 3)
+            if (numberOfColorsInBottle == 3)
             {
                 if (bottleColors[2].Equals(bottleColors[1]))
                 {
@@ -323,24 +330,24 @@ public class GlassBottleController : MonoBehaviour
 
     public bool FillBottleCheck(Color colorToCheck)
     {
-        if(numberOfColorsInBottle == 0)
+        if (numberOfColorsInBottle == 0)
         {
             return true;
         }
         else
         {
-            if(numberOfColorsInBottle == 3)
+            if (numberOfColorsInBottle == 3)
             {
                 return false;
             }
             else
             {
-                if(topColor.Equals(colorToCheck))
+                if (topColor.Equals(colorToCheck))
                 {
                     return true;
                 }
-                else 
-                { 
+                else
+                {
                     return false;
                 }
             }

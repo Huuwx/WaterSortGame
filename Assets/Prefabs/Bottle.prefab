@@ -136,8 +136,8 @@ MonoBehaviour:
   justThisBottle: 1
   bottleColors:
   - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.9960785, g: 0.97647065, b: 0, a: 1}
-  - {r: 0.9960785, g: 0.97647065, b: 0, a: 1}
+  - {r: 0.06666667, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.97647065, b: 0, a: 1}
   bottleMaskSR: {fileID: 1447482104726465479}
   ScaleAndRotationMultiplierCurve:
     serializedVersion: 2
@@ -254,7 +254,7 @@ MonoBehaviour:
   leftRotationPoint: {fileID: 9005368929864407455}
   rightRotationPoint: {fileID: 7528039019781390251}
   lineRenderer: {fileID: 0}
-  TimeToRotate: 1.5
+  TimeToRotate: 1
 --- !u!61 &6463993019619577710
 BoxCollider2D:
   m_ObjectHideFlags: 0

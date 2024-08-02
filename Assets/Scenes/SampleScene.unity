@@ -136,6 +136,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1913639233}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 2004703811}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: numberOfColorsInBottle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[1].g
       value: 1
       objectReference: {fileID: 0}
@@ -473,6 +481,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1913639233}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 2004703811}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: numberOfColorsInBottle
       value: 0
       objectReference: {fileID: 0}
@@ -587,6 +599,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1913639233}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 2004703811}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[0].g
       value: 0.97647065
       objectReference: {fileID: 0}
@@ -677,12 +693,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1913639233}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 2004703811}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[0].g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[0].r
-      value: 0.06666667
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[1].g
@@ -767,6 +787,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1913639233}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 2004703811}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: fillAmounts.Array.data[0]
       value: -1.5
       objectReference: {fileID: 0}
@@ -781,6 +805,10 @@ PrefabInstance:
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: fillAmounts.Array.data[3]
       value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: bottleColors.Array.data[1].g
+      value: 0.9764706
       objectReference: {fileID: 0}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[1].r
@@ -1094,12 +1122,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1913639233}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 2004703811}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: numberOfColorsInBottle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[0].g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[0].r
-      value: 1
+      value: 0.06666667
       objectReference: {fileID: 0}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[1].g
@@ -1176,9 +1212,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 720016244}
     m_Modifications:
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: TimeToRotate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: lineRenderer
       value: 
       objectReference: {fileID: 1913639233}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 2004703811}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: numberOfColorsInBottle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1304290426404241409, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -1487,6 +1535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstBottle: {fileID: 0}
   SecondBottle: {fileID: 0}
+  canPick: 0
 --- !u!1001 &2118882254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1499,6 +1548,10 @@ PrefabInstance:
       propertyPath: lineRenderer
       value: 
       objectReference: {fileID: 1913639233}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 2004703811}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[1].g
       value: 1
@@ -1586,6 +1639,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1913639233}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 2004703811}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: fillAmounts.Array.data[0]
       value: -1.5
       objectReference: {fileID: 0}
@@ -1600,6 +1657,14 @@ PrefabInstance:
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: fillAmounts.Array.data[3]
       value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: bottleColors.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
+      propertyPath: bottleColors.Array.data[1].g
+      value: 0.9764706
       objectReference: {fileID: 0}
     - target: {fileID: 33251528792571537, guid: a03393fdf16d5c54eb33034a19ccb9ed, type: 3}
       propertyPath: bottleColors.Array.data[1].r

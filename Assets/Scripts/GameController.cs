@@ -7,16 +7,18 @@ public class GameController : MonoBehaviour
     public GlassBottleController FirstBottle;
     public GlassBottleController SecondBottle;
 
+    public bool canPick;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        canPick = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && canPick)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousPos2D = new Vector2(mousePos.x, mousePos.y);
@@ -41,6 +43,7 @@ public class GameController : MonoBehaviour
                         }
                         else
                         {
+                            canPick = false;
                             SecondBottle = hit.collider.GetComponent<GlassBottleController>();
                             FirstBottle.bottleControllerRef = SecondBottle;
 
@@ -64,5 +67,10 @@ public class GameController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetTrueCanPick()
+    {
+        canPick = true;
     }
 }
