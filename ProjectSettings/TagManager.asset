@@ -44,9 +44,15 @@ TagManager:
   - name: Background
     uniqueID: 2038410753
     locked: 0
+  - name: LineRenderer
+    uniqueID: 2609032693
+    locked: 0
   - name: BottleMask
     uniqueID: 2072646577
     locked: 0
   - name: Bottle
     uniqueID: 2162861653
+    locked: 0
+  - name: BottleFill
+    uniqueID: 3276687029
     locked: 0
