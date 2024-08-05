@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,7 +41,12 @@ public class GlassBottleController : MonoBehaviour
 
     public LineRenderer lineRenderer;
 
-    public bool canPick;
+    public bool completedBottle;
+
+    public bool getCompletedBottle()
+    {
+        return completedBottle;
+    }
 
     //moi lan cong or tru 0.65
 
@@ -54,7 +60,7 @@ public class GlassBottleController : MonoBehaviour
 
         UpdateTopColorValues();
 
-        canPick = true;
+        completedBottle = false;
     }
 
     private void Update()
@@ -195,6 +201,7 @@ public class GlassBottleController : MonoBehaviour
         bottleMaskSR.sortingLayerName = "Bottle";
 
         gameController.SetTrueCanPick();
+        gameController.CheckCompleted();
     }
 
     void UpdateColorFromShader()
@@ -216,10 +223,7 @@ public class GlassBottleController : MonoBehaviour
         while (t < TimeToRotate)
         {
             lerpValue = t / TimeToRotate;
-            Debug.Log("Lerp Value" + lerpValue);
             angleValue = Mathf.Lerp(0.0f, directionMultiplier * rotationValues[rotationIndex], lerpValue);
-            Debug.Log("Angle Value" + angleValue);
-            Debug.Log("Last Angle Value" + lastAngleValue);
 
             //transform.eulerAngles = new Vector3(0, 0, angleValue);
 
@@ -257,6 +261,8 @@ public class GlassBottleController : MonoBehaviour
 
         numberOfColorsInBottle -= numberOfColorsToTransfer;
         bottleControllerRef.numberOfColorsInBottle += numberOfColorsToTransfer;
+
+        CheckCompletedBottle();
 
         lineRenderer.enabled = false;
 
@@ -325,6 +331,22 @@ public class GlassBottleController : MonoBehaviour
             }
 
             rotationIndex = 2 - (numberOfColorsInBottle - numberOfTopColorLayers);
+        }
+    }
+
+    public void CheckCompletedBottle()
+    {
+        int check = 0;
+        for(int i = 0; i < bottleControllerRef.numberOfColorsInBottle - 1; i++)
+        {
+            if (bottleControllerRef.bottleColors[i] == bottleControllerRef.bottleColors[i + 1])
+            {
+                check += 1;
+            }
+        }
+        if(check == 2)
+        {
+            bottleControllerRef.completedBottle = true;
         }
     }
 
